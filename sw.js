@@ -1,55 +1,59 @@
-// Service worker: cache do app para uso offline.
-// Ao alterar qualquer arquivo, incremente a versão para forçar a atualização.
-const VERSION = 'economia-h02-v1';
-const ARQUIVOS = [
-  './', './index.html', './manifest.webmanifest',
-  './icons/icon-192.png', './icons/icon-512.png',
-  './icons/maskable-512.png', './icons/apple-touch-icon.png'
+/* Service worker: cache do aplicativo para uso offline. */
+const CACHE_NAME = "economia-pwa-v1";
+const APP_SHELL = new URL("./economia-resumos.html", self.registration.scope).toString();
+const CORE_ASSETS = [
+  APP_SHELL,
+  new URL("./manifest.webmanifest", self.registration.scope).toString(),
+  new URL("./icons/icon-192.png", self.registration.scope).toString(),
+  new URL("./icons/icon-512.png", self.registration.scope).toString()
 ];
 
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(VERSION).then(c => c.addAll(ARQUIVOS)).then(() => self.skipWaiting()));
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(CORE_ASSETS))
+      .then(() => self.skipWaiting())
+  );
 });
 
-self.addEventListener('activate', e => {
-  e.waitUntil(
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
     caches.keys()
-      .then(ks => Promise.all(ks.filter(k => k !== VERSION).map(k => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
 
-self.addEventListener('fetch', e => {
-  const req = e.request;
-  if (req.method !== 'GET') return;
-  const url = new URL(req.url);
+self.addEventListener("fetch", (event) => {
+  const request = event.request;
+  const url = new URL(request.url);
+  if (request.method !== "GET" || url.origin !== self.location.origin) return;
 
-  // Fontes do Google: stale-while-revalidate (se falhar offline, o CSS cai na fonte do sistema)
-  if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
-    e.respondWith(
-      caches.open(VERSION).then(async c => {
-        const hit = await c.match(req);
-        const rede = fetch(req).then(r => { c.put(req, r.clone()); return r; }).catch(() => hit);
-        return hit || rede;
-      })
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then(async (response) => {
+          if (response && response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
+            await cache.put(APP_SHELL, response.clone());
+          }
+          return response;
+        })
+        .catch(async () => (await caches.match(request)) || (await caches.match(APP_SHELL)))
     );
     return;
   }
 
-  if (url.origin !== location.origin) return;
-
-  // Navegação: rede primeiro (pega conteúdo novo), cache como reserva offline
-  if (req.mode === 'navigate') {
-    e.respondWith(
-      fetch(req).then(r => {
-        const copia = r.clone();
-        caches.open(VERSION).then(c => c.put('./index.html', copia));
-        return r;
-      }).catch(() => caches.match('./index.html'))
-    );
-    return;
-  }
-
-  // Demais arquivos: cache primeiro
-  e.respondWith(caches.match(req).then(hit => hit || fetch(req)));
+  event.respondWith(
+    caches.match(request).then(async (cached) => {
+      if (cached) return cached;
+      const response = await fetch(request);
+      if (response && response.ok) {
+        const cache = await caches.open(CACHE_NAME);
+        await cache.put(request, response.clone());
+      }
+      return response;
+    })
+  );
 });

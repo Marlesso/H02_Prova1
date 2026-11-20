@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b6e8a">
+<meta name="description" content="Resumos, quizzes e fórmulas de Economia dos módulos 5 a 10.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<title>Economia: resumos, quizzes e formulário (Módulos 5 a 10)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600&family=Archivo:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f6;--card:#fff;--ink:#14213d;--mut:#51607a;--line:#d3dbe6;--acc:#0b6e8a;--accbg:#dcf0f5;--ok:#16794c;--okbg:#dff3e8;--bad:#b3261e;--badbg:#fbe4e2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1522;--card:#162134;--ink:#e6ecf5;--mut:#9aa8c0;--line:#2a3a55;--acc:#5cc3dd;--accbg:#173446;--ok:#6fd6a0;--okbg:#14352a;--bad:#ff8f86;--badbg:#3d1c1a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1522;--card:#162134;--ink:#e6ecf5;--mut:#9aa8c0;--line:#2a3a55;--acc:#5cc3dd;--accbg:#173446;--ok:#6fd6a0;--okbg:#14352a;--bad:#ff8f86;--badbg:#3d1c1a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Literata,Georgia,serif}
+header{padding:28px 20px 8px;max-width:860px;margin:0 auto}
+h1{font:800 clamp(1.7rem,5vw,2.6rem)/1.1 Archivo,Arial,sans-serif;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:0;max-width:60ch}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:16px}
+nav div{max-width:860px;margin:0 auto;display:flex;gap:6px;padding:10px 20px;overflow-x:auto}
+nav button{font:600 .88rem Archivo,Arial,sans-serif;white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+main{max-width:860px;margin:0 auto;padding:20px}
+.mh{margin:6px 0 18px}.mh h2{font:800 1.5rem Archivo,Arial,sans-serif;margin:0}.mh p{margin:2px 0 0;color:var(--mut);font-size:.95rem}
+.sec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:6px;padding:14px 18px;margin:0 0 12px}
+.sec h3{font:700 1.05rem Archivo,Arial,sans-serif;margin:0 0 4px}
+.sec p{margin:0;max-width:70ch}
+.note{font-size:.88rem;color:var(--mut);margin-top:6px!important}
+.quiz{margin-top:30px;border-top:2px solid var(--ink);padding-top:16px}
+.quiz>h2{font:800 1.35rem Archivo,Arial,sans-serif;margin:0 0 12px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin-bottom:12px}
+.q h4{margin:0 0 10px;font:600 1rem/1.45 Literata,Georgia,serif}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-size:.95rem;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:6px;padding:9px 12px;margin-bottom:6px;cursor:pointer}
+.opt:hover:not(:disabled){background:var(--accbg)}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.no{background:var(--badbg);border-color:var(--bad)}
+.opt:disabled{cursor:default;color:var(--ink)}
+.exp{font-size:.9rem;color:var(--mut);margin:6px 0 0}
+.res{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px}
+.score{font:800 1.2rem Archivo,Arial,sans-serif}
+.reset{font:600 .88rem Archivo,Arial,sans-serif;border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:6px;padding:8px 14px;cursor:pointer}
+footer{max-width:860px;margin:0 auto;padding:10px 20px 40px;color:var(--mut);font-size:.85rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Aba de fórmulas */
+.formula-intro{color:var(--mut);margin:-6px 0 22px;max-width:75ch;font-size:.95rem}
+.formula-group{margin:26px 0 30px}
+.formula-group h2{font:800 1.25rem Archivo,Arial,sans-serif;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.formula-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:6px;margin:0 0 11px;overflow:hidden}
+.formula-field{padding:11px 16px}
+.formula-field+.formula-field{border-top:1px solid var(--line)}
+.formula-label{display:block;font:700 .72rem Archivo,Arial,sans-serif;letter-spacing:.055em;text-transform:uppercase;color:var(--mut);margin-bottom:5px}
+.formula-value{max-width:75ch}
+.formula-equation{font:600 1rem/1.6 Archivo,Arial,sans-serif;color:var(--ink);background:var(--accbg);border-radius:5px;padding:9px 12px;overflow-wrap:anywhere}
+.formula-legend{font-size:.93rem;color:var(--mut);line-height:1.55}
+@media(max-width:560px){.formula-field{padding:10px 12px}.formula-equation{font-size:.94rem}.formula-group h2{font-size:1.12rem}}
+
+
+/* Instalação PWA */
+.pwa-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.install-btn{font:700 .88rem Archivo,Arial,sans-serif;border:1px solid var(--acc);background:var(--acc);color:#fff;border-radius:999px;padding:9px 15px;cursor:pointer}
+.install-btn:hover{filter:brightness(.94)}
+.install-status{font: .78rem/1.4 Archivo,Arial,sans-serif;color:var(--mut)}
+
+</style>
+</head>
+<body>
+<header>
+<h1>Economia: resumos, quizzes e formulário</h1>
+<p class="sub">Resumos dos módulos 5 a 10 da apostila Inatel Online. Escolha um módulo para estudar e testar seus conhecimentos ou consulte o formulário de fórmulas.</p>
+<div class="pwa-actions"><button type="button" id="installBtn" class="install-btn" hidden>Instalar aplicativo</button><span id="installStatus" class="install-status" aria-live="polite"></span></div>
+</header>
+<nav><div id="tabs" role="tablist" aria-label="Módulos e formulário"></div></nav>
+<main id="main"></main>
+<footer>Baseado nas apostilas H02 (M5 a M10). Os indicadores numéricos do Módulo 10 são históricos e mantêm o período indicado na apostila (principalmente 2000 a 2021).</footer>
+
+<script>
+var M=[
+{id:"m5",tab:"M5 · Oferta e demanda",t:"Módulo 5 · Demanda, Oferta e Equilíbrio de Mercado",d:"Como compradores e vendedores se organizam e como o preço se forma.",
+S:[
+["Mercados: oferta x demanda","Mercado é o local, real ou virtual, de <b>trocas voluntárias</b> entre compradores e vendedores, sem imposição estatal. Cada lado valoriza mais o que recebe do que o que entrega, e essa satisfação mútua estimula novas trocas e a especialização. Existem mercados de bens, de trabalho, de câmbio, acionário e outros, facilitados por meios de pagamento como moeda, cartões e Pix."],
+["Condição coeteris paribus","Como muitas variáveis afetam oferta e demanda ao mesmo tempo, o analista <b>mantém constantes</b> todas as variáveis que não estuda e observa o efeito de apenas uma. Exemplo: para medir o efeito da temperatura na demanda de sorvete, renda, concorrentes e marketing ficam fixos."],
+["Definição de demanda","Demanda é a quantidade de um bem ou serviço que os consumidores estão <b>dispostos e capacitados a comprar</b> por unidade de tempo. A soma das demandas individuais é a <b>demanda agregada</b>. Ela orienta quanto produzir, quanta mão de obra contratar e onde investir."],
+["Demanda x quantidade demandada","A demanda é a <b>reta (ou curva) inteira</b>, com inclinação negativa porque preço e quantidade demandada são inversamente relacionados. A quantidade demandada é um <b>ponto</b> dessa reta. Exemplo: Qd = 23 − 8P; a R$ 2,00 demanda-se 7 unidades e a R$ 1,00, 15. Mudança de preço move o ponto; a demanda não muda. A demanda <b>desloca-se</b> por renda, gosto, preço de bens relacionados, sazonalidade, marketing, exportações e crédito: para a direita se aumenta, para a esquerda se diminui."],
+["Efeito renda e tipos de bens","<b>Bens normais</b> (alimentos, vestuário, medicamentos) têm demanda crescente com a renda. <b>Bens inferiores</b> (marca desconhecida, seminovos) têm demanda reduzida quando a renda sobe. <b>Bens de consumo saciado</b> (sal, água) não mudam. <b>Bens superiores</b> (perfumes importados, eletrônicos) têm demanda que dispara com a renda."],
+["Bens de Giffen e de Veblen","<b>Giffen</b>: bens essenciais e baratos para a população de baixa renda (pão francês, ovos); com inflação ou queda de renda, o consumo aumenta. <b>Veblen</b>: bens de ostentação (joias, carros e relógios de luxo); quanto maior o preço, mais atraem quem quer se destacar."],
+["Efeito substituição","Quando o preço de um bem sobe, o consumidor migra para um <b>bem substituto</b> (manteiga e margarina, gasolina e etanol). Já os <b>bens complementares</b> são consumidos juntos (café e açúcar, arroz e feijão)."],
+["Demanda individual e agregada","A demanda individual é uma reta de inclinação negativa (ex.: R$ 4 → 1 unid.; R$ 1 → 4 unid. por dia). A <b>demanda de mercado</b> é a soma das demandas individuais, que têm inclinações diferentes porque os consumidores reagem de modos distintos."],
+["Oferta e quantidade ofertada","Oferta é a quantidade que os produtores estão dispostos a oferecer por um preço, por unidade de tempo. Depende do preço, da tecnologia, do risco e da rentabilidade. A oferta é uma reta de <b>inclinação positiva</b>. Exemplo: Qs = 1 + 2P; a R$ 3,00 oferta-se 7 unidades. A R$ 2,00 seriam 5 unidades (a apostila escreve 1, mas a função dá 5). Deslocam a oferta: preço de outros bens, custo dos fatores de produção, sazonalidade, clima, subsídios, importações, tecnologia e preferências do empresário."],
+["Oferta e preço do bem; oferta agregada","Preço mais alto gera mais lucro e atrai até produtores menos eficientes, por isso a quantidade ofertada cresce com o preço. A <b>oferta de mercado</b> é a soma das ofertas individuais, que diferem pelas estruturas de produção de cada empresa."],
+["Equilíbrio no mercado competitivo","Com preço alto há <b>excesso de oferta</b> (estoques) e pressão de queda no preço. Com preço baixo há <b>excesso de demanda</b> e pressão de alta. O <b>preço de equilíbrio</b> é aquele em que quantidade demandada e ofertada se igualam e a pressão sobre o preço é nula (no exemplo, R$ 50,00 e 6.000 unidades)."],
+["Mudanças no equilíbrio","Aumento da demanda (renda maior, marketing, substituto mais caro) desloca a curva para a direita e <b>eleva preço e quantidade</b>. Aumento da oferta (subsídio, tecnologia, custos menores, novo concorrente) <b>reduz o preço</b> e aumenta a quantidade. Exemplo: calor inesperado eleva a demanda de sorvete e, sem reação da oferta, sobem preço e quantidade."],
+["A matemática da oferta e da demanda","No equilíbrio, S = D. Com D: p = 13 − 0,04q e S: p = 0,04q − 3, temos 0,08q = 16, então <b>q = 200</b> e <b>p = R$ 5,00</b> (receita de R$ 1.000/dia). Se a demanda passa a p = 15 − 0,04q: q = 225, p = R$ 6,00 e receita de R$ 1.350. O produtor e o governo (tributos) ganham; o consumidor paga mais."]
+],
+Q:[
+["O que muda quando o preço de um bem cai, mantendo-se tudo o mais constante?",["A demanda se desloca para a direita","A quantidade demandada aumenta (movimento ao longo da curva)","A oferta se desloca para a esquerda","A demanda se torna inelástica"],1,"Preço altera a quantidade demandada, que é um ponto na curva. A demanda só se desloca por outros fatores."],
+["Qual par é de bens complementares?",["Gasolina e etanol","Manteiga e margarina","Café e açúcar","Refrigerante e suco"],2,"Complementares são consumidos juntos; os demais pares são substitutos."],
+["Bens de Veblen são aqueles em que:",["O consumo cai quando a renda sobe","O consumo é constante com a renda","Quanto maior o preço, mais atraem consumidores","O consumo sobe com inflação por serem essenciais"],2,"Veblen são bens de ostentação. O caso da inflação descreve os bens de Giffen."],
+["Com D: p = 13 − 0,04q e S: p = 0,04q − 3, o equilíbrio é:",["q = 100 e p = R$ 9","q = 200 e p = R$ 5","q = 225 e p = R$ 6","q = 150 e p = R$ 7"],1,"0,08q = 16 → q = 200; p = 0,04·200 − 3 = 5."],
+["Um subsídio à produção tende a:",["Deslocar a oferta para a direita e reduzir o preço de equilíbrio","Deslocar a demanda para a direita","Deslocar a oferta para a esquerda","Não alterar o equilíbrio"],0,"Subsídio reduz custos, aumenta a oferta e baixa o preço de equilíbrio."],
+["A uma preço acima do equilíbrio há:",["Excesso de demanda e pressão de alta","Excesso de oferta e pressão de queda","Equilíbrio estável","Escassez de oferta"],1,"Preço alto gera estoques e pressão para reduzir o preço."]
+]},
+
+{id:"m6",tab:"M6 · Elasticidades",t:"Módulo 6 · Teorias da Elasticidade",d:"Quanto a demanda e a oferta reagem a mudanças de preço, de renda e de preços de outros bens.",
+S:[
+["O que é elasticidade","Mede o efeito que a variação de uma variável produz em outra, em termos percentuais e coeteris paribus. Demanda <b>elástica</b>: reage intensamente ao preço. Demanda <b>inelástica</b>: reação branda. As principais são elasticidade-preço da demanda, elasticidade-renda, elasticidade cruzada e elasticidade-preço da oferta. Também se aplica a variáveis macro, como exportações e câmbio."],
+["Elasticidade-preço da demanda (Epd)","Epd = |ΔQ% / ΔP%|. <b>Epd &gt; 1</b>: elástica (eletrônicos). <b>0 &lt; Epd &lt; 1</b>: inelástica (alimentos, medicamentos). <b>Epd = 1</b>: unitária. Exemplo: preço de R$ 12 para R$ 15 (+25%) e quantidade de 200 para 180 (−10%) gera Epd = 0,4, demanda inelástica."],
+["Fatores que afetam a Epd","<b>Substitutos</b>: mais substitutos, maior elasticidade (quanto mais específico o bem, mais elástico: creme dental de menta x todos os sabores). <b>Essencialidade</b>: mais essencial, menor elasticidade (insulina). <b>Peso no orçamento</b>: maior peso, maior elasticidade (carne x caixa de fósforos). <b>Horizonte de tempo</b>: mais tempo, mais substitutos por tecnologia (a gasolina hoje tem etanol, GLP e motor elétrico)."],
+["Interpretação gráfica","Quanto <b>mais inclinada</b> a curva de demanda, menor a elasticidade. No exemplo, D1 tem Epd = 0,33 (inelástica) e D2 tem Epd = 1,17 (elástica). No extremo vertical a demanda é <b>perfeitamente inelástica</b> (sal de cozinha); no extremo horizontal é <b>perfeitamente elástica</b>. Bens supérfluos de preço alto, como perfume, têm demanda bem elástica."],
+["Falha da elasticidade no ponto e ponto médio","Com Qd = 10 − 2P, o cálculo no ponto dá resultados diferentes para subida (2 → 3) e queda (3 → 2) do preço, classificando o mesmo bem como inelástico e elástico. A solução é o <b>ponto médio</b>, que usa variações absolutas divididas pelas <b>médias</b> de preço e quantidade, e dá o mesmo resultado nos dois sentidos."],
+["Elasticidade e receita de venda","Demanda <b>inelástica</b>: subir o preço <b>aumenta</b> a receita (50 → 55 com Q 20 → 19: R$ 1.000 → R$ 1.045). Demanda <b>elástica</b>: subir o preço <b>reduz</b> a receita (Q 20 → 17: R$ 1.000 → R$ 935). Na elástica, baixar o preço eleva a receita; na inelástica, baixar o preço a reduz. Na unitária a receita fica constante."],
+["Exemplo no ponto médio","Sorvete de R$ 4 para R$ 5, quantidade de 80 para 70. A demanda é inelástica, então a receita sobe: R$ 320 → R$ 350 por dia. O aumento foi vantajoso."],
+["Elasticidade-preço cruzada","Mede a reação da quantidade de um bem à variação do preço de outro. <b>Positiva</b>: bens <b>substitutos</b> (gasolina e etanol). <b>Negativa</b>: bens <b>complementares</b> (café e açúcar). Exemplo: o preço de X sobe de R$ 12 para R$ 15 e a demanda de Y vai de 300 para 500: resultado positivo, bens substitutos."],
+["Elasticidade-renda da demanda","ER = ΔQ% / ΔR%. <b>Bens normais</b>: 0 &lt; ER &lt; 1 (alimentos). <b>Superiores</b>: ER &gt; 1 (eletrônicos). <b>Inferiores</b>: ER &lt; 0 (veículos seminovos). <b>Consumo saciado</b>: ER = 0 (sal). Exemplo: renda de R$ 800 para R$ 1.000 e consumo de 150 para 180 resulta em bem normal."],
+["Elasticidade-preço da oferta","Razão entre a variação percentual da quantidade ofertada e a do preço. Preço maior eleva a margem de lucro (ML = Preço − CT unitário) e atrai produtores. <b>0 &lt; Eo &lt; 1</b>: oferta inelástica; <b>Eo &gt; 1</b>: elástica; <b>0</b>: perfeitamente inelástica; <b>infinito</b>: perfeitamente elástica. Exemplo: preço de R$ 80 para R$ 100 e oferta de 220 para 240: inelástica (agropecuária)."],
+["Fatores da elasticidade da oferta","Dependem da <b>mobilidade e flexibilidade dos fatores de produção</b> e do <b>tempo</b>. Na indústria é fácil adquirir ou alugar equipamentos, e a resposta é rápida. Na agropecuária é preciso esperar o ciclo da colheita, então a oferta responde devagar (caso do milho)."]
+],
+Q:[
+["Um bem tem Epd = 0,4. Ele é:",["Elástico","Inelástico","De elasticidade unitária","Perfeitamente elástico"],1,"Entre 0 e 1 a demanda é inelástica: a quantidade reage menos que o preço."],
+["Qual fator aumenta a elasticidade-preço da demanda?",["Maior essencialidade do bem","Menor número de substitutos","Maior peso do bem no orçamento","Horizonte de tempo mais curto"],2,"Bens de maior peso no orçamento e com mais tempo para achar substitutos têm demanda mais elástica."],
+["Para um bem de demanda elástica, aumentar o preço:",["Aumenta a receita total","Reduz a receita total","Mantém a receita constante","Não altera a quantidade"],1,"Na demanda elástica a queda de quantidade é proporcionalmente maior que a alta de preço."],
+["Elasticidade-preço cruzada negativa indica bens:",["Substitutos","Inferiores","Complementares","De Giffen"],2,"Se o preço de x sobe e a demanda de y cai, y é complementar a x."],
+["Por que se usa o método do ponto médio?",["Porque dá resultado diferente para alta e queda de preço","Porque o resultado não depende do sentido da variação do preço","Porque ignora a quantidade","Porque só vale para bens inferiores"],1,"As médias tornam o cálculo consistente nos dois sentidos."],
+["Um bem com ER &lt; 0 é classificado como:",["Normal","Superior","Inferior","De consumo saciado"],2,"Quando a renda sobe, a demanda cai: bem inferior."],
+["Por que a oferta agropecuária costuma ser inelástica a curto prazo?",["Porque não há demanda","Porque o ciclo de plantio e colheita limita a resposta ao preço","Porque os equipamentos são alugados facilmente","Porque o preço é fixo"],1,"A baixa mobilidade dos fatores e o tempo de colheita retardam a oferta."]
+]},
+
+{id:"m7",tab:"M7 · Estruturas de mercado",t:"Módulo 7 · Estruturas de Mercado",d:"As formas como compradores e vendedores se organizam e o poder de cada um sobre o preço.",
+S:[
+["Visão geral","As estruturas dividem-se em <b>concorrência perfeita</b> e <b>concorrência imperfeita</b>. Predomínio do ofertante: concorrência monopolista, oligopólio, monopólio. Predomínio do demandante: oligopsônio e monopsônio. Há ainda o monopólio bilateral. Barreiras de entrada e falta de liberdade definem a imperfeição; a concorrência leva a eficiência, inovação e preços menores, o que inclui mais pessoas no mercado."],
+["Fatores que classificam o mercado","Número de ofertantes e de demandantes, poder de negociação das empresas, interdependência entre elas, homogeneidade ou diferenciação do produto, acesso à informação, capacidade de influenciar o mercado e facilidade de entrada ou saída."],
+["Concorrência perfeita","Muitas empresas (mercado atomizado) e muitos consumidores, <b>produtos homogêneos</b>, preço dado pelo mercado, transparência de informação, <b>sem barreiras</b> de entrada ou saída, nenhum agente altera o preço, fatores de produção móveis. Lucros extraordinários são passageiros: os concorrentes inovam e os preços voltam ao normal. O <b>lucro normal</b> cobre o custo de oportunidade do empresário."],
+["Monopólio","Uma única empresa domina a oferta, o produto não tem substituto próximo, há barreiras de entrada e o lucro não é controlado pela concorrência. Surge pelo controle de insumo, por patente (temporário), por controle estatal de serviços (Correios) ou por porte e custos (<b>monopólio natural</b>). Sem pressão competitiva, o consumidor tende a enfrentar produtos defasados ou caros."],
+["Monopólio natural","Ocorre quando o investimento e os custos são tão altos que um segundo fornecedor é inviável: energia elétrica, saneamento e antes a telefonia fixa. Só tecnologias revolucionárias (como a energia fotovoltaica) podem rompê-lo."],
+["Barreiras estruturais e estratégicas","<b>Estruturais</b>: economias de escala, de aprendizagem (know how) e de confiança, diferenciação, efeitos de rede (combos), patentes, concessões, tarifas e cotas. <b>Estratégicas</b>, adotadas de propósito: preço limite (preço próximo ou abaixo do custo), excesso de diferenciação, controle de inputs e franquias (integração vertical) e publicidade constante."],
+["Monopólio coercitivo x eficiente","No <b>coercitivo</b>, o Estado elege uma empresa e a protege com subsídios e privilégios, impedindo outras de atuar (Correios). No <b>eficiente</b>, a empresa ganha grande fatia por oferecer os melhores produtos, sem favores estatais e sem barreiras artificiais (Apple e Amazon, segundo a apostila). O líder de hoje pode ser seguidor amanhã (argumento de Lawrence Reed)."],
+["Oligopólio","Poucas empresas dominam a oferta; produtos substitutos próximos; alta elasticidade cruzada; decisões <b>interdependentes</b> de preço; possibilidade de acordos (cartel). Exemplos: veículos, combustíveis, bebidas, bancos, aéreas. Pode ser <b>puro</b> (produtos homogêneos, como voos Rio-São Paulo) ou <b>diferenciado</b> (automóveis). Em indústria nascente é comum a guerra de preços; na madura, o conluio tácito ou cartel."],
+["Market-share e concentração","<b>Market-share</b> é o faturamento da empresa dividido pelo do setor. O <b>grau de concentração</b> soma a participação das quatro maiores empresas. Quanto maior, mais o mercado se aproxima de um monopólio (exemplo da apostila: Coca-Cola e Ambev, 80% no mercado de bebidas)."],
+["Cartel e truste","<b>Cartel</b>: união de oligopolistas para evitar a concorrência e fixar preços; no Brasil é crime contra a ordem econômica (Lei 8.137/1990). <b>Truste</b>: grupos sob mesma orientação, sem perder autonomia, que dominam o mercado e suprimem a concorrência, controlando todas as etapas da produção (verticalização)."],
+["Concorrência monopolista","Muitas empresas pequenas e consumidores, produtos <b>diferenciados</b> (design, confiabilidade, atendimento) mas substitutos próximos, margem estreita, demanda elástica, sem barreiras, conluio impossível. Exemplos: refrigerantes, higiene, dentistas, restaurantes."],
+["Monopsônio e oligopsônio","<b>Monopsônio</b>: um único comprador domina a demanda e define o preço (NASA e astronautas). <b>Oligopsônio</b>: poucos compradores dominam (laticínios que compram de muitas fazendas; montadoras que compram de centenas de fabricantes de autopeças)."],
+["Monopólio bilateral e quadro de Stackelberg","No <b>monopólio bilateral</b> há um único comprador e um único vendedor e o preço sai da negociação direta (sindicato único x grande empresa). O quadro de Stackelberg cruza número de vendedores e de consumidores e inclui também quase monopólio, quase monopsônio e oligopólio bilateral."]
+],
+Q:[
+["Qual característica NÃO pertence à concorrência perfeita?",["Produtos homogêneos","Transparência de informação","Barreiras de entrada elevadas","Muitos compradores e vendedores"],2,"Na concorrência perfeita não há barreiras de entrada ou saída."],
+["O monopólio natural surge principalmente por:",["Patente concedida pelo Estado","Altos investimentos e custos que inviabilizam um segundo fornecedor","Guerra de preços","Acordo entre empresas"],1,"Exemplos: energia elétrica e saneamento."],
+["Qual é uma barreira ESTRATÉGICA?",["Economia de escala","Patente","Preço limite","Concessão pública"],2,"Preço limite é adotado deliberadamente pela empresa; as outras são estruturais."],
+["Um mercado com um único comprador e muitos vendedores é:",["Monopólio","Oligopsônio","Monopsônio","Monopólio bilateral"],2,"Um comprador dominante caracteriza o monopsônio."],
+["O cartel é:",["Um acordo entre oligopolistas para fixar preços e evitar concorrência","Uma empresa que domina por excelência","Um comprador único","Uma forma de concorrência perfeita"],0,"No Brasil, é crime contra a ordem econômica."],
+["No oligopólio diferenciado:",["Os produtos são idênticos","Há um só vendedor","Os produtos são semelhantes, mas não idênticos (ex.: automóveis)","Não há interdependência entre as empresas"],2,"O oligopólio puro tem produtos homogêneos, como as viagens aéreas."],
+["O grau de concentração de mercado é calculado somando:",["Os lucros de todas as empresas","A participação de faturamento das quatro maiores empresas","O número de consumidores","As patentes do setor"],1,"Quanto maior, mais próximo de um monopólio."]
+]},
+
+{id:"m8",tab:"M8 · Produção",t:"Módulo 8 · Teoria da Produção",d:"Como insumos viram produtos e como a produtividade se comporta.",
+S:[
+["Contexto econômico","Da Revolução Industrial à Revolução Digital e à globalização, a integração aproximou produtores, clientes e concorrentes. Isso exige eficiência, redução de desperdícios, mão de obra qualificada e tecnologia. Reduzir custos libera recursos para investir e ganhar vantagem competitiva (Indústria 4.0)."],
+["Fatores de produção","<b>Fixos</b> não mudam com a produção (instalações) e geram custos fixos (aluguel, seguros). <b>Variáveis</b> mudam com a produção (matéria-prima, mão de obra, energia) e geram custos variáveis. Com mais produção o custo fixo se dilui: é a <b>economia de escala</b>. Produção transforma insumos em bens; tecnologia é o conjunto de técnicas disponíveis; métodos são as combinações possíveis de fatores."],
+["Métodos de produção","<b>Por projeto</b>: uma unidade por vez, sem padronização (edifícios, navios, filmes). <b>Por encomenda</b>: pequenas quantidades conforme o cliente. <b>Em lote</b>: unidades padronizadas, com novo setup a cada lote (alimentos, medicamentos). <b>Em massa</b>: linha de montagem e padronização (fordismo, veículos). <b>Contínua</b>: altamente automatizada, 24 h por dia, produto homogêneo (químicos, energia, água)."],
+["Eficiência técnica e econômica","<b>Técnica</b>: produzir com a menor quantidade possível de insumos, sem desperdício. <b>Econômica</b>: benefício que decorre da produção organizada e tecnicamente eficiente, com melhor alocação de recursos escassos."],
+["Curto e longo prazo","Não têm relação direta com o tempo do calendário. No <b>curto prazo</b>, pelo menos um insumo é fixo e a empresa só varia a intensidade de uso da capacidade. No <b>longo prazo</b>, todos os insumos podem mudar, inclusive a capacidade da fábrica. Setores inovadores chegam ao longo prazo mais cedo."],
+["Função de produção e isoquantas","Q = f(N, K, M, T, ...): a produção depende de trabalho, capital, matérias-primas, espaço e tecnologia. Na análise usa-se coeteris paribus, variando um fator por vez: Q = f(N) com K constante. <b>Isoquantas</b> são curvas com a mesma produção para diferentes combinações de capital e trabalho (ex.: 2 máquinas e 150 pessoas, ou 6 máquinas e 50 pessoas, produzem 1.000 unidades). Isoquantas mais afastadas da origem representam maior produção."],
+["Produtividade média","Produção é a quantidade produzida; <b>produtividade</b> é a relação entre produção e um insumo. PMe do trabalho = q/N; PMe do capital = q/K. Ex.: 2.500 peças por mês e 10 funcionários são 250 peças por funcionário."],
+["Produtividade total dos fatores (PTF)","A PTF considera apenas capital e trabalho: PTF = Y / (aK + bN). Quanto maior a PTF de um país, mais competitivo ele é. Aumenta com capacitação, inovação, infraestrutura, estabilidade institucional e crédito. A apostila afirma que a PTF brasileira está estagnada há décadas, enquanto Coreia do Sul e China cresceram bastante."],
+["Produtividade marginal","PMg = Δq / ΔN (ou Δq / ΔK, a apostila escreve só N e K no denominador). Mostra se o trabalhador ou a máquina adicional é mais ou menos produtivo que os já existentes. Exemplo: 20 trabalhadores produzem 4.500 (PMe = 225); com 22 produzem 4.800 (PMe = 218). Os dois novos têm PMg = 300/2 = 150, o que reduz a média, embora a produtividade possa crescer com o aprendizado."],
+["Lei dos rendimentos decrescentes","Mantendo fixos os demais fatores e aumentando um fator variável, a produção cresce primeiro a taxas crescentes, depois a taxas decrescentes e, por fim, pode cair. No exemplo da fazenda (10 alqueires de terra): a PMg sobe até 10 t com 3 mil trabalhadores, depois cai. A PMe é máxima com 4 mil (8 t/mil), quando se cruza com a PMg. O produto total máximo (44 t) ocorre com 8 mil, onde PMg = 0; com 9 mil a PMg fica negativa (−2). Na tabela da apostila há erros de digitação no produto total de 6 e 7 mil (consistente seria 42 e 43 t)."]
+],
+Q:[
+["Qual é um exemplo de fator variável de produção?",["Instalações industriais","Aluguel","Matéria-prima","Seguro"],2,"Matéria-prima, mão de obra e energia variam com a produção."],
+["Um método de produção altamente automatizado, 24 horas por dia, com produto homogêneo é:",["Por projeto","Em lote","Em massa","Contínuo"],3,"Exemplos: produtos químicos, energia elétrica e água."],
+["Qual é a definição de curto prazo na Teoria da Produção?",["Período menor que um ano","Período em que ao menos um fator de produção não pode ser alterado","Período em que todos os insumos mudam","Período de produção em lote"],1,"Curto e longo prazo não dependem do tempo cronológico, mas da possibilidade de alterar os insumos."],
+["Uma isoquanta representa:",["Os custos iguais de produção","Combinações de capital e trabalho que geram a mesma quantidade produzida","Preços iguais","A receita constante"],1,"Mesma produção com diferentes combinações de K e N."],
+["20 trabalhadores produzem 4.500 e 22 produzem 4.800. A produtividade marginal dos 2 novos é:",["225","218","150","300"],2,"PMg = (4.800 − 4.500) / 2 = 150."],
+["Pela lei dos rendimentos decrescentes, a produção total é máxima quando:",["A PMe é máxima","A PMg é zero","A PMg é máxima","A PMg é negativa"],1,"Depois do ponto de PMg = 0, acrescentar trabalhadores reduz a produção."],
+["A produtividade total dos fatores (PTF) considera:",["Apenas tecnologia","Capital e trabalho","Gestão e recursos naturais","Apenas o preço"],1,"Tecnologia, gestão e recursos naturais são difíceis de medir e ficam de fora."]
+]},
+
+{id:"m9",tab:"M9 · Custos",t:"Módulo 9 · Teoria dos Custos",d:"Como os custos se comportam, quando a empresa lucra e como escolher a escala.",
+S:[
+["Custos fixos, variáveis e totais","<b>Fixos</b> não variam com a quantidade (depreciação, aluguel, seguros). <b>Variáveis</b> crescem com a produção (matéria-prima, energia, mão de obra direta). <b>CT = CF + CV</b>. A receita (preço fixo) cresce linearmente e cruza o CT no <b>ponto de equilíbrio contábil (PEC)</b>, a partir do qual há lucro. O <b>ponto de equilíbrio econômico (PEE)</b> inclui o retorno ao capital investido."],
+["Custos unitários e produção em escala","CT unit = CT/q; CVMe = CV/q; CFMe = CF/q. O CV unitário permanece estável e o CF unitário se dilui com mais produção, então o custo total unitário cai: é a <b>produção em escala</b>, que aumenta a margem e o lucro."],
+["Margem de contribuição, PEC e margem de lucro","<b>MC = Preço − CV unit.</b> (contribuição de cada unidade para pagar os custos fixos). <b>PEC = CF / MC</b> (quantidade a vender para cobrir os fixos; arredonda-se para inteiro). <b>ML = Preço − CT unit.</b> Se a venda ficar abaixo do PEC, há prejuízo mesmo com ML positiva."],
+["Exemplo de cálculo","9.000 unid./mês, CF = R$ 8.100 e CV = R$ 16.800 (CT = R$ 24.900). CF unit. = R$ 0,90; CV unit. ≈ R$ 1,87; CT unit. ≈ R$ 2,77. Com preço R$ 5: MC ≈ R$ 3,13; PEC ≈ 2.588 unid.; ML ≈ R$ 2,23. Lucro = R$ 5 × 9.000 − 24.900 = <b>R$ 20.100</b> (as outras fórmulas dão valores próximos, por arredondamento). Precificar sem conhecer o custo pode gerar margem excessiva (atrai concorrentes) ou negativa."],
+["Grau de alavancagem operacional (GAO)","Com +50% na produção (13.500 unid.), o CF unit. cai para R$ 0,60, o CT unit. para R$ 2,47 e o lucro sobe para R$ 34.155 (+70,18%). <b>GAO = Δ%Lucro / Δ%Vendas = 1,40</b>: cada 1% de variação nas vendas muda o resultado em 1,4%. GAO maior significa mais lucro potencial, mas também mais risco operacional."],
+["Custos no curto prazo (análise gráfica)","O CV não é linear: cresce rápido no início, mais devagar depois e rápido de novo. O CT tem o mesmo formato. No exemplo (preço R$ 7, CF R$ 6) o lucro fica positivo a partir de 5 unidades, é máximo com 8 (R$ 15) e vira prejuízo com 10. Se o aumento da oferta derruba os preços, a receita deixa de ser linear e o CT a supera antes."],
+["Custo marginal e receita marginal","<b>CMg = ΔCT/Δq</b> e <b>RMg = ΔRT/Δq</b>. Se RMg &gt; CMg, vale produzir a unidade adicional. O lucro é <b>máximo quando RMg = CMg</b>; produzir mais ou menos reduz o lucro."],
+["Custos médios e custo marginal","O CFMe cai indefinidamente. CVMe e CTMe caem, atingem um mínimo e sobem. O <b>CMg</b> atinge seu mínimo antes e <b>cruza CVMe e CTMe nos seus pontos de mínimo</b>; depois disso, eles sobem."],
+["Três situações de preço","<b>1)</b> Preço abaixo do CVMe e do CTMe: MC e ML negativas, nem os fixos são pagos; é o ponto de fechamento, a empresa pode quebrar. <b>2)</b> Preço acima do CVMe e abaixo do CTMe: MC positiva, ML negativa; só sobrevive no curto prazo. <b>3)</b> Preço acima de ambos: há lucro, e a curva de CMg passa a ser a <b>curva de oferta</b>."],
+["Custos no longo prazo","No longo prazo todos os custos são variáveis e a empresa escolhe sua capacidade. A curva de longo prazo <b>envolve</b> as curvas de curto prazo (curva envelope). O ideal é dimensionar a capacidade no ponto de custo médio mínimo, conforme economia, concorrência e tecnologia; estrutura grande demais encarece."],
+["Economias e deseconomias de escala","<b>Economias de escala</b> (custo médio de longo prazo caindo): especialização do trabalho, compra de insumos em maior quantidade, indivisibilidade financeira e de equipamentos. <b>Deseconomias</b> (custo subindo após o mínimo): limites da eficiência administrativa e aumento do preço dos fatores de produção."],
+["Externalidades","Mudanças de custos e benefícios para a sociedade causadas pela produção das empresas. <b>Positivas</b>: mão de obra treinada, tecnologia, saúde, obras públicas. <b>Negativas</b>: poluição, congestionamento, barragens, aumento de aluguéis."]
+],
+Q:[
+["Qual fórmula está correta?",["MC = Preço + CV unit.","PEC = CF / MC","ML = Preço − CV unit.","CT = CF − CV"],1,"PEC = CF/MC; MC = Preço − CV unit.; ML = Preço − CT unit.; CT = CF + CV."],
+["Com preço R$ 5 e CV unitário R$ 1,87, a margem de contribuição é:",["R$ 3,13","R$ 2,23","R$ 0,90","R$ 2,77"],0,"MC = 5 − 1,87 = 3,13."],
+["Com CF = R$ 8.100 e MC = R$ 3,13, o PEC é de aproximadamente:",["2.588 unidades","9.000 unidades","1.000 unidades","8.100 unidades"],0,"8.100 / 3,13 ≈ 2.587,9, arredondado para 2.588."],
+["O lucro é máximo quando:",["CMg = CVMe","RMg = CMg","CFMe = 0","CTMe = Preço"],1,"A última unidade produzida deve render receita igual ao seu custo."],
+["Se o preço está acima do CVMe e abaixo do CTMe, a empresa:",["Tem lucro","Paga os fixos mas tem margem de lucro negativa; só sustenta isso no curto prazo","Deve fechar imediatamente","Tem GAO nulo"],1,"MC positiva, ML negativa."],
+["Um GAO de 1,40 significa que:",["O lucro cai 1,4% para cada 1% de produção","1% de variação nas vendas altera o resultado operacional em 1,4%","O custo fixo é 1,4 vezes o variável","O PEC é 1,4 unidade"],1,"GAO = Δ%Lucro / Δ%Vendas."],
+["Qual é uma causa de deseconomia de escala?",["Compra de insumos em maior quantidade","Especialização do trabalhador","Limitação da eficiência administrativa","Indivisibilidade de equipamentos"],2,"As outras são causas de economia de escala."],
+["Poluição causada por uma fábrica é exemplo de:",["Economia de escala","Externalidade negativa","Custo fixo","Barreira de entrada"],1,"Externalidades são custos ou benefícios que recaem sobre a sociedade."]
+]}
+
+,
+{id:"m10",tab:"M10 · Macroeconomia",t:"Módulo 10 · Ambiente Macroeconômico",d:"Como o ambiente econômico influencia empresas e pessoas e quais obstáculos estruturais afetam o crescimento do Brasil.",
+S:[
+["Ambiente macroeconômico e globalização","O <b>ambiente macroeconômico</b> de um país e do mundo influencia as decisões de pessoas e empresas e os resultados de suas ações. A <b>globalização</b>, impulsionada pela evolução dos transportes, das comunicações e pela revolução digital, amplia a integração comercial e a divisão das atividades. Isso aumenta a competição, incentiva a inovação e pressiona as empresas a elevar a eficiência e a qualidade."],
+["Competitividade organizacional","Para competir, uma organização precisa oferecer <b>qualidade e preços atraentes</b>, aprimorar seus produtos e manter processos produtivos eficientes. A apostila destaca a importância de profissionais qualificados, motivados, comprometidos e proativos. Quando o preço de venda supera o custo de produção, a empresa pode obter lucro; a qualidade percebida também ajuda a conquistar a satisfação e a fidelidade dos clientes."],
+["Multinacionais, transnacionais e cadeia global de fornecedores","Empresas <b>multinacionais</b> atuam em diversos países e estabelecem bases de produção em diferentes mercados. As <b>transnacionais</b>, além de descentralizarem a produção e as vendas, também distribuem os centros de decisão e a gestão. Elas podem organizar uma <b>cadeia global de fornecedores</b>: empresas parceiras fornecem insumos, ajudam a reduzir custos e contribuem para a inovação. A apostila usa a cadeia de fornecedores da Boeing como exemplo (p. 10)."],
+["A economia brasileira na competição global","A apostila relaciona a competitividade do Brasil a fatores como burocracia, tributação, regulamentação, investimentos e inovação. Ela registra que o país chegou à 7ª posição entre as maiores economias nos anos 2000 e aparece na 13ª posição em 2021, com valores de PIB em dólares influenciados também pela cotação cambial. Esses números descrevem o período estudado, não a classificação atual."],
+["Balança comercial e grau de abertura","A <b>balança comercial</b> compara exportações e importações de bens: saldo = exportações − importações. Há superávit quando as exportações superam as importações e déficit quando ocorre o contrário. O <b>grau de abertura econômica</b> é calculado por (exportações + importações) / PIB. A apostila compara aproximadamente 20% para o Brasil e 60% para economias emergentes, usando os dados e o contexto histórico apresentados no material (p. 13)."],
+["PIB, crescimento econômico e renda per capita","O <b>Produto Interno Bruto (PIB)</b> representa o valor da produção de bens e serviços finais gerados dentro do território de um país em determinado período. Seu crescimento indica expansão da produção. O <b>PIB nominal</b> usa preços correntes; o <b>PIB real</b> desconta os efeitos da variação de preços. A <b>renda per capita</b> é uma média calculada dividindo-se o PIB pela população. Ela ajuda a comparar a riqueza média, mas não mostra como a renda está distribuída entre as pessoas."],
+["PIB x PNB e composição do PIB","O <b>PIB</b> considera a produção realizada dentro das fronteiras do país. O <b>Produto Nacional Bruto (PNB)</b> considera a renda recebida pelos residentes nacionais, incluindo os fluxos de renda com o exterior. A fórmula apresentada é <b>PIB = C + I + G + (X − M)</b>: C = consumo das famílias; I = investimentos; G = gastos do governo; X = exportações; M = importações. O <b>investimento líquido</b> corresponde ao investimento bruto menos a depreciação."],
+["Poupança, investimento e crescimento econômico","A formação de <b>poupança</b> é importante para viabilizar investimentos. Segundo a apostila, a poupança depende da renda, dos preços, da tributação e do nível de endividamento público. Investimentos ampliam a capacidade produtiva; com maior produção podem surgir novos empregos e aumento da renda, formando um ciclo de crescimento. A tabela da página 18 compara poupança, investimento, crescimento do PIB e crescimento do PIB per capita entre 2016 e 2021; são dados históricos."],
+["Burocracia e ambiente de negócios","A burocracia envolve regras, procedimentos, divisão do trabalho e hierarquia. Quando há excesso de exigências, sobreposição de normas, demora e custos para cumprir obrigações, o ambiente de negócios pode ficar mais difícil. A apostila associa esse peso à redução da disposição para empreender e investir e ao aumento de oportunidades para corrupção. O gráfico da página 19, baseado no Doing Business 2018, apresenta o tempo gasto pelas empresas para pagar impostos; não deve ser interpretado como medição atual."],
+["Déficit fiscal e dívida pública","O <b>resultado fiscal</b> é calculado por <b>arrecadação de tributos − gastos públicos</b>. Quando os gastos superam a arrecadação, ocorre <b>déficit fiscal</b>; déficits persistentes podem aumentar a dívida pública. O pagamento de juros também pesa nas contas do governo. A apostila mostra dados anuais de resultado primário, nominal e dívida em relação ao PIB, com destaque para o aumento do déficit em 2020 durante a pandemia (pp. 21–23)."],
+["Déficit previdenciário","A apostila apresenta o déficit do <b>Regime Geral de Previdência Social (RGPS)</b>, ligado ao setor privado, e do <b>Regime Próprio de Previdência Social (RPPS)</b>, ligado ao setor público. O envelhecimento da população e o aumento do número de beneficiários pressionam as despesas previdenciárias. Como aposentadorias são despesas obrigatórias, o governo pode remanejar recursos de outras áreas, fenômeno que o material chama de <b>transferência de renda intergeracional</b>. Os quadros e gráficos das páginas 24 a 26 usam dados de 2015 a 2020."],
+["Dívida pública e classificação de risco","A dívida pública pode ser comparada ao PIB para avaliar sua dimensão em relação à economia. O aumento da dívida pode elevar a percepção de risco sobre a capacidade de pagamento do governo. Agências de classificação de risco (rating) avaliam essa capacidade; uma classificação especulativa pode dificultar a atração de investimentos, especialmente estrangeiros. Os valores e notas mencionados nas páginas 27 e 28 referem-se ao cenário descrito pela apostila em 2021."],
+["Carga tributária e seus efeitos","A <b>carga tributária</b> representa a relação entre os tributos arrecadados e a dimensão da economia. A apostila aponta que impostos sobre produtos e empresas podem elevar custos e preços. Entre os efeitos econômicos do excesso de tributação, o material destaca <b>redução do consumo</b>, menor viabilidade de projetos, queda de investimentos e produção, menos inovação e empregos. Também discute a diferença entre o volume arrecadado e a qualidade dos serviços percebidos pela população. Os percentuais citados são de levantamentos de 2009 e 2021."],
+["Inflação e taxa de juros","A <b>inflação</b> é o aumento generalizado dos preços e reduz o poder de compra da moeda. A apostila relaciona a inflação, entre outros fatores, ao desequilíbrio entre demanda e oferta e aos custos que afetam a produção. A <b>Taxa Selic</b> é a taxa básica de juros e pode ser elevada para conter a demanda e a pressão sobre os preços. Por outro lado, juros maiores encarecem o crédito e o capital, podendo reduzir investimentos, atividade econômica e geração de empregos. As séries e exemplos do material vão até 2021 (pp. 31–33)."],
+["Corrupção e insegurança jurídica","A apostila explica que a percepção de corrupção pode aumentar custos, favorecer concorrência desleal e afastar investimentos. O texto cita o Índice de Percepção da Corrupção de 2020 e uma estimativa de perdas econômicas anuais; esses números são referências históricas do material. A <b>insegurança jurídica</b> está associada à instabilidade, à complexidade e às mudanças frequentes das normas, além da demora e da baixa efetividade de decisões judiciais. Regras pouco previsíveis elevam o risco de empreender e podem reduzir investimentos e produção."],
+["Desemprego e atividade econômica","O material associa as dificuldades do ambiente de negócios, a incerteza e a redução dos investimentos à menor expansão da produção e à dificuldade de geração de empregos. Quando a atividade fica abaixo de seu potencial, jovens e pessoas que buscam recolocação podem encontrar mais obstáculos para entrar no mercado de trabalho. Os gráficos das páginas 37 e 38 comparam o desemprego no Brasil entre 2002 e 2020 e taxas de países selecionados no início de 2021."],
+["Infraestrutura e competitividade","Uma infraestrutura adequada de transportes, saneamento e serviços urbanos conecta regiões e reduz custos. Rodovias, ferrovias, aeroportos e portos com baixa qualidade ou capacidade insuficiente encarecem a produção, podem pressionar os preços e reduzem a competitividade dos produtos nacionais. A tabela da página 39 apresenta posições brasileiras em diferentes quesitos de infraestrutura, enquanto o gráfico da página 40 mostra a evolução da taxa de investimento entre 2010 e 2018; são referências históricas."],
+["Educação, capital humano e produtividade","A escolaridade e a qualidade do ensino contribuem para formar mão de obra qualificada, elevar a produtividade e apoiar o desenvolvimento tecnológico. A apostila relaciona baixa qualificação a menor capacidade de produzir bens de qualidade com custos competitivos e a salários mais baixos. As páginas 41 e 42 apresentam dados históricos de escolaridade na América do Sul e posições do Brasil no PISA em 2012, 2015 e 2018, além de um gráfico que compara a contribuição do trabalho e da produtividade ao crescimento de diferentes economias."],
+["Gestão pública e caminhos para o desenvolvimento","Na conclusão, a apostila destaca a importância de gestores capacitados, capital humano, tecnologia e uso eficiente dos recursos naturais. Entre as medidas que o material recomenda estão disciplina fiscal, ambiente de negócios favorável ao investimento e à inovação, reformas estruturais, respeito ao direito de propriedade e à segurança jurídica, combate à corrupção e melhoria da educação. Essas propostas representam a interpretação e as recomendações defendidas pelo próprio material didático (p. 44)."]
+],
+Q:[
+["Qual efeito da globalização sobre a atividade das empresas é destacado na apostila?",["Diminui a concorrência e reduz a necessidade de inovação","Aumenta a competição e pressiona por eficiência, qualidade e inovação","Elimina a importância dos fornecedores","Impede a atuação das empresas em outros países"],1,"A integração dos mercados amplia a concorrência e estimula o desenvolvimento de produtos e processos, além da busca por eficiência e qualidade."],
+["Qual alternativa diferencia corretamente o PIB do PNB?",["O PIB considera a produção dentro do território; o PNB considera a renda recebida pelos residentes nacionais, incluindo fluxos com o exterior","O PIB mede apenas exportações; o PNB mede apenas importações","O PIB considera somente empresas nacionais; o PNB somente empresas estrangeiras","PIB e PNB representam exatamente a mesma medida"],0,"O PIB adota o critério territorial. O PNB considera a renda recebida pelos residentes nacionais e os fluxos de renda com o exterior. A apostila também apresenta a composição do PIB como C + I + G + (X − M)."],
+["Como é calculado o grau de abertura econômica apresentado na apostila?",["(Exportações − Importações) / PIB","PIB / população","(Exportações + Importações) / PIB","Consumo das famílias + gastos do governo"],2,"O grau de abertura econômica é a soma das exportações com as importações, dividida pelo PIB. A balança comercial, por sua vez, corresponde às exportações menos as importações."],
+["Segundo a relação apresentada no módulo, como poupança e investimento podem contribuir para o crescimento?",["A poupança reduz a capacidade produtiva e impede contratações","A poupança pode viabilizar investimentos, que ampliam a produção e favorecem a geração de empregos e renda","Investimentos reduzem necessariamente a produção","Poupança e investimento não possuem relação com o crescimento econômico"],1,"A apostila relaciona a formação de poupança à viabilização de investimentos. Com a expansão da capacidade produtiva, podem crescer a produção, o emprego e a renda."],
+["Quando ocorre déficit fiscal?",["Quando a arrecadação supera os gastos públicos","Quando exportações superam importações","Quando os gastos públicos superam a arrecadação de tributos","Quando o investimento privado supera a poupança"],2,"O resultado fiscal é calculado por arrecadação de tributos menos gastos públicos. Quando esse resultado é negativo, há déficit fiscal, que, se persistente, pode contribuir para o aumento da dívida pública."],
+["Qual é uma relação entre inflação e Taxa Selic descrita na apostila?",["A Selic pode ser elevada para conter a demanda e a pressão sobre os preços, mas juros maiores também encarecem o crédito","A Selic mede diretamente o nível de desemprego","A inflação reduz todos os preços da economia","A Selic não interfere nas decisões de consumo e investimento"],0,"A apostila apresenta a Selic como taxa básica de juros. Sua elevação pode conter a demanda e a pressão inflacionária, mas também torna o crédito mais caro e pode desestimular investimentos."],
+["Qual conjunto reúne obstáculos estruturais ao crescimento discutidos no módulo?",["Educação de qualidade, segurança jurídica e infraestrutura adequada","Burocracia excessiva, insegurança jurídica, infraestrutura precária e baixa qualidade da educação","Aumento da produtividade e inovação","Expansão da qualificação profissional e melhora da gestão pública"],1,"O módulo discute como burocracia, insegurança jurídica, infraestrutura precária e baixa qualidade da educação podem prejudicar investimentos, produtividade, competitividade e geração de empregos. A conclusão também destaca o combate à corrupção e a melhoria da gestão pública."]
+]}
+
+];
+
+
+var F=[
+{module:"Módulo 5 · Demanda, Oferta e Equilíbrio de Mercado",items:[
+{subject:"Funções de demanda e oferta (exemplos da apostila)",formula:"Demanda: Qd = 23 − 8P  |  Oferta: Qs = 1 + 2P",legend:"Qd é a quantidade demandada; Qs é a quantidade ofertada; P é o preço. São funções ilustrativas da apostila, usadas para mostrar a relação entre preço e quantidade. Não representam uma regra numérica para todos os mercados."},
+{subject:"Demanda e oferta agregadas",formula:"D agregada = D interna + D externa  |  S agregada = S interna + S externa",legend:"D representa demanda e S representa oferta. A demanda agregada soma a demanda interna e a externa; a oferta agregada soma a oferta interna e a externa."},
+{subject:"Equilíbrio de mercado",formula:"S = D  (ou Qs = Qd)",legend:"O equilíbrio ocorre quando a quantidade que os produtores desejam ofertar é igual à quantidade que os consumidores desejam comprar. Para encontrar o preço e a quantidade de equilíbrio, igualam-se as funções de oferta e demanda."}
+]},
+{module:"Módulo 6 · Teorias da Elasticidade",items:[
+{subject:"Variação percentual da quantidade e do preço",formula:"ΔQ% = ((Q final − Q inicial) / Q inicial) × 100  |  ΔP% = ((P final − P inicial) / P inicial) × 100",legend:"Q é quantidade e P é preço. A variação percentual compara a diferença entre o valor final e o inicial com o valor inicial. Na elasticidade-preço da demanda, a quantidade e o preço geralmente variam em sentidos opostos."},
+{subject:"Elasticidade-preço da demanda (no ponto)",formula:"Epd = | ΔQ% / ΔP% |",legend:"Mede quanto a quantidade demandada reage, em percentual, à variação percentual do preço. O módulo é usado porque preço e quantidade demandada normalmente variam em sentidos opostos. Epd > 1: elástica; 0 < Epd < 1: inelástica; Epd = 1: unitária."},
+{subject:"Elasticidade-preço da demanda (ponto médio)",formula:"ΔP = P final − P inicial  |  ΔQ = Q final − Q inicial  |  Epd = | (ΔQ / Q médio) / (ΔP / P médio) |",legend:"P médio e Q médio são as médias aritméticas dos valores inicial e final: P médio = (P inicial + P final) / 2 e Q médio = (Q inicial + Q final) / 2. O método usa variações absolutas divididas pelas médias e evita que o resultado dependa do sentido da variação do preço."},
+{subject:"Elasticidade-preço cruzada da demanda",formula:"Exy = ΔQy% / ΔPx%",legend:"Mede a reação percentual da quantidade demandada do bem Y à variação percentual do preço do bem X. Resultado positivo indica bens substitutos; resultado negativo indica bens complementares."},
+{subject:"Elasticidade-renda da demanda",formula:"ER = ΔQ% / ΔR%",legend:"R é a renda do consumidor. Indica como a quantidade demandada reage à variação da renda. ER entre 0 e 1: bem normal; ER > 1: bem superior; ER < 0: bem inferior; ER = 0: bem de consumo saciado."},
+{subject:"Elasticidade-preço da oferta",formula:"Es = ΔQ% / ΔP%",legend:"Mede a reação percentual da quantidade ofertada à variação percentual do preço. Entre 0 e 1: oferta inelástica; acima de 1: elástica; igual a 1: unitária; igual a 0: perfeitamente inelástica; tendendo ao infinito: perfeitamente elástica."},
+{subject:"Receita total de vendas",formula:"RT = Preço × Quantidade  (RT = P × Q)",legend:"RT é a receita total obtida com as vendas; P é o preço unitário; Q é a quantidade vendida. A apostila usa essa relação para comparar a receita antes e depois de alterações no preço."}
+]},
+{module:"Módulo 7 · Estruturas de Mercado",items:[
+{subject:"Participação de mercado (market-share)",formula:"Market-share = (Faturamento da empresa / Faturamento total do setor) × 100%",legend:"Compara o faturamento de uma empresa com o faturamento total do setor. O resultado indica a parcela percentual do mercado correspondente à empresa."},
+{subject:"Grau de concentração de mercado",formula:"Concentração (CR4) = participação das 4 maiores empresas somada",legend:"Somam-se os percentuais de faturamento das quatro maiores empresas em relação ao faturamento total do setor. Quanto maior a concentração, mais o mercado se aproxima de uma estrutura monopolista, conforme a explicação da apostila."}
+]},
+{module:"Módulo 8 · Teoria da Produção",items:[
+{subject:"Função de produção",formula:"Q = f(N, K, M, T, ...)",legend:"Q é a quantidade produzida; N é mão de obra; K é capital; M representa matérias-primas; T representa o espaço utilizado; e os demais termos representam outros fatores. A apostila também analisa Q = f(N), mantendo K constante, ou Q = f(K), mantendo N constante."},
+{subject:"Produtividade média",formula:"PMeN = q / N  |  PMeK = q / K",legend:"PMeN é a produtividade média do trabalho: produção (q) dividida pelo número de trabalhadores (N). PMeK é a produtividade média do capital: produção dividida pela quantidade de capital (K), como número de máquinas ou horas de uso."},
+{subject:"Produtividade marginal",formula:"PMgN = Δq / ΔN  |  PMgK = Δq / ΔK",legend:"Indica quanto a produção varia quando se acrescenta uma unidade do fator analisado. Δq é a variação da produção; ΔN é a variação da mão de obra; ΔK é a variação do capital. Exemplo da apostila: (4.800 − 4.500) / (22 − 20) = 150 unidades por trabalhador adicional."},
+{subject:"Produtividade total dos fatores (PTF)",formula:"PTF = Y / (aK + bN)",legend:"Y é a produção da economia; K é capital; N é mão de obra; a e b são coeficientes. A fórmula da apostila considera a produtividade do capital e do trabalho."}
+]},
+{module:"Módulo 9 · Teoria dos Custos",items:[
+{subject:"Custo total",formula:"CT = CF + CV",legend:"CT é custo total; CF é custo fixo, que não varia com a quantidade produzida; CV é custo variável, que cresce com a produção."},
+{subject:"Custos médios ou unitários",formula:"CTu = CT / q = (CF / q) + (CV / q)  |  CFMe = CF / q  |  CVMe = CV / q",legend:"q é a quantidade produzida; CTu é o custo total unitário; CFMe é o custo fixo médio; CVMe é o custo variável médio. Os custos médios são calculados dividindo cada custo pela quantidade produzida."},
+{subject:"Margem de contribuição",formula:"MC = Preço − CV unitário",legend:"MC indica quanto cada unidade vendida contribui para cobrir os custos fixos e, depois de cobertos, formar lucro. CV unitário é o custo variável por unidade."},
+{subject:"Ponto de equilíbrio contábil (PEC)",formula:"PEC = CF / MC",legend:"Indica a quantidade mínima que precisa ser vendida para cobrir os custos fixos. A apostila orienta arredondar o resultado para cima, pois a quantidade vendida deve ser um número inteiro."},
+{subject:"Margem de lucro por unidade",formula:"ML = Preço − CT unitário",legend:"ML representa o lucro por unidade vendida, considerando o preço de venda menos o custo total unitário. Para haver lucro total, também é necessário vender acima do ponto de equilíbrio contábil."},
+{subject:"Lucro e receita total",formula:"RT = Preço × q  |  Lucro = RT − CT  |  Lucro = ML × quantidade vendida",legend:"RT é receita total; CT é custo total; ML é margem de lucro unitária. A apostila também apresenta Lucro = MC × (quantidade vendida − PEC). Diferenças pequenas entre resultados podem ocorrer por arredondamento."},
+{subject:"Grau de alavancagem operacional (GAO)",formula:"GAO = Δ% do lucro / Δ% das vendas",legend:"Compara a variação percentual do lucro operacional com a variação percentual das vendas (ou da produção vendida). Um GAO maior significa que o lucro reage mais intensamente às variações das vendas, aumentando também o risco operacional."},
+{subject:"Custo e receita marginais",formula:"CMg = ΔCT / Δq  |  RMg = ΔRT / Δq",legend:"CMg é o acréscimo do custo total para produzir uma quantidade adicional; RMg é o acréscimo da receita total obtida com a venda de uma quantidade adicional. Δ indica variação e q representa quantidade."},
+{subject:"Condição de maximização do lucro",formula:"RMg = CMg",legend:"Segundo a apostila, a empresa maximiza o lucro no nível de produção em que a receita marginal da última unidade é igual ao custo marginal dessa unidade."}
+]},
+{module:"Módulo 10 · Ambiente Macroeconômico",items:[
+{subject:"Produto Interno Bruto (PIB) pela ótica da despesa",formula:"PIB = C + I + G + (X − M)",legend:"C é consumo das famílias; I é investimento; G são gastos do governo; X são exportações; M são importações. A fórmula representa a composição do PIB apresentada na apostila."},
+{subject:"Grau de abertura econômica",formula:"Grau de abertura = ((X + M) / PIB) × 100%",legend:"X são exportações; M são importações. O indicador compara a soma das exportações e importações com o PIB. A apostila apresenta a razão (Exportações + Importações) / PIB."},
+{subject:"Saldo da balança comercial",formula:"Saldo comercial = Exportações − Importações  (X − M)",legend:"Saldo positivo indica exportações maiores que importações (superávit comercial); saldo negativo indica importações maiores que exportações (déficit comercial). A relação também aparece no componente externo da fórmula do PIB."},
+{subject:"Investimento líquido",formula:"Investimento líquido = Investimento bruto − Depreciação",legend:"A depreciação representa a perda de valor dos investimentos por uso, desgaste ou obsolescência. O investimento líquido desconta essa perda do investimento bruto."},
+{subject:"Resultado fiscal",formula:"Resultado fiscal = Arrecadação de tributos − Gastos públicos",legend:"Quando o resultado é negativo, há déficit fiscal: os gastos públicos superam a arrecadação. Quando é positivo, há superávit fiscal."}
+]}
+];
+
+var tabs=document.getElementById("tabs"),main=document.getElementById("main");
+function markTab(id){
+  [].forEach.call(tabs.children,function(b){b.setAttribute("aria-selected",b.dataset.id===id?"true":"false")});
+}
+function openTabHash(id){
+  if(location.hash!=="#"+id)history.replaceState(null,"","#"+id);
+  window.scrollTo(0,0);
+}
+function showFormulario(){
+  markTab("formulario");
+  var h='<div class="mh"><h2>Formulário de fórmulas</h2><p>Consulta rápida das fórmulas presentes nos módulos 5 a 10. Cada cartão separa o assunto, a fórmula e a legenda dos símbolos.</p></div>';
+  h+='<p class="formula-intro">Use esta aba como folha de consulta. Nas funções numéricas apresentadas como exemplos, os valores não devem ser interpretados como constantes para qualquer situação.</p>';
+  F.forEach(function(group){
+    h+='<div class="formula-group"><h2>'+group.module+'</h2>';
+    group.items.forEach(function(item){
+      h+='<div class="formula-card">';
+      h+='<div class="formula-field"><div class="formula-label">Assunto</div><div class="formula-value">'+item.subject+'</div></div>';
+      h+='<div class="formula-field"><div class="formula-label">Fórmula</div><div class="formula-value formula-equation">'+item.formula+'</div></div>';
+      h+='<div class="formula-field"><div class="formula-label">Legenda</div><div class="formula-value formula-legend">'+item.legend+'</div></div>';
+      h+='</div>';
+    });
+    h+='</div>';
+  });
+  main.innerHTML=h;
+  openTabHash("formulario");
+}
+function show(id){
+  if(id==="formulario"){showFormulario();return;}
+  var m=M.find(function(x){return x.id===id})||M[0];
+  markTab(m.id);
+  var h='<div class="mh"><h2>'+m.t+'</h2><p>'+m.d+'</p></div>';
+  m.S.forEach(function(s){h+='<div class="sec"><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'});
+  h+='<section class="quiz"><h2>Questionário: '+m.t.split("·")[1].trim()+'</h2><div id="qs"></div><div class="res"><span class="score" id="sc" aria-live="polite"></span><button class="reset" id="rs">Refazer questionário</button></div></section>';
+  main.innerHTML=h;
+  quiz(m);
+  openTabHash(m.id);
+}
+function quiz(m){
+  var box=document.getElementById("qs"),sc=document.getElementById("sc"),hit=0,done=0;
+  function upd(){sc.textContent=done? ("Acertos: "+hit+" de "+m.Q.length+(done===m.Q.length?" (concluído)":"")) : "";}
+  function build(){
+    hit=0;done=0;box.innerHTML="";upd();
+    m.Q.forEach(function(q,i){
+      var d=document.createElement("div");d.className="q";
+      d.innerHTML="<h4>"+(i+1)+". "+q[0]+"</h4>";
+      var exp=document.createElement("p");exp.className="exp";exp.hidden=true;exp.textContent=q[3];
+      var bs=q[1].map(function(o,j){
+        var b=document.createElement("button");b.className="opt";b.type="button";b.innerHTML=o;
+        b.onclick=function(){
+          bs.forEach(function(x,k){x.disabled=true;if(k===q[2])x.classList.add("ok")});
+          if(j===q[2])hit++;else b.classList.add("no");
+          done++;exp.hidden=false;upd();
+        };
+        d.appendChild(b);return b;
+      });
+      d.appendChild(exp);box.appendChild(d);
+    });
+  }
+  build();
+  document.getElementById("rs").onclick=build;
+}
+M.forEach(function(m){
+  var b=document.createElement("button");b.textContent=m.tab;b.dataset.id=m.id;b.setAttribute("role","tab");
+  b.setAttribute("aria-selected","false");
+  b.onclick=function(){show(m.id)};tabs.appendChild(b);
+});
+var formulaButton=document.createElement("button");
+formulaButton.textContent="Formulário";formulaButton.dataset.id="formulario";formulaButton.setAttribute("role","tab");formulaButton.setAttribute("aria-selected","false");
+formulaButton.onclick=function(){show("formulario")};tabs.appendChild(formulaButton);
+window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
+show(location.hash.slice(1)||"m5");
+
+</script>
+
+<script>
+// Registro do service worker e fluxo de instalação do PWA.
+(function(){
+  var installButton = document.getElementById("installBtn");
+  var installStatus = document.getElementById("installStatus");
+  var deferredPrompt = null;
+
+  window.addEventListener("beforeinstallprompt", function(event){
+    event.preventDefault();
+    deferredPrompt = event;
+    if (installButton) installButton.hidden = false;
+  });
+
+  if (installButton) {
+    installButton.addEventListener("click", async function(){
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      var result = await deferredPrompt.userChoice;
+      if (result && result.outcome === "accepted") {
+        installButton.hidden = true;
+        if (installStatus) installStatus.textContent = "Instalação iniciada.";
+      }
+      deferredPrompt = null;
+    });
+  }
+
+  window.addEventListener("appinstalled", function(){
+    if (installButton) installButton.hidden = true;
+    if (installStatus) installStatus.textContent = "Aplicativo instalado.";
+  });
+
+  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("./sw.js").then(function(){
+        if (installStatus && !installStatus.textContent) installStatus.textContent = "Modo offline ativado.";
+      }).catch(function(error){
+        console.error("Não foi possível registrar o service worker:", error);
+        if (installStatus) installStatus.textContent = "Não foi possível ativar o modo offline.";
+      });
+    });
+  } else if (installStatus) {
+    installStatus.textContent = "Para instalar e usar offline, publique em HTTPS ou abra por localhost.";
+  }
+})();
+</script>
+</body>
+</html>

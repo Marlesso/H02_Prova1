@@ -1,17 +1,19 @@
 {
-  "name": "Economia H02 – Estudo para a prova",
-  "short_name": "Economia H02",
-  "description": "Resumo e questões de Economia H02 para estudar para a prova.",
+  "id": "./economia-resumos.html",
+  "name": "Economia — Resumos e Fórmulas",
+  "short_name": "Economia",
+  "description": "Resumos, quizzes e formulário de fórmulas de Economia dos módulos 5 a 10.",
   "lang": "pt-BR",
-  "start_url": "./index.html",
+  "start_url": "./economia-resumos.html",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "theme_color": "#0b6e8a",
   "background_color": "#eef2f6",
-  "theme_color": "#0b6e6e",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {"src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
   ]
 }
